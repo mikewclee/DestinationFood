@@ -14,7 +14,7 @@ function getYelpInfo(searchText) {
   var yelpAPI = config.yelpBearer;
 
   var settings = {
-    "url": `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=&location=${searchText}`,
+    "url": `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=food&location=${searchText}`,
     "method": "GET",
     "sort_by": "review_count",
     "timeout": 0,
@@ -36,10 +36,10 @@ function getYelpInfo(searchText) {
             <div class="col-md-3">
             <div class="well text-center">
               <img src="${restaurant.image_url}">
-              <h5>${restaurant.name}</h5>
+              <a href=${restaurant.url} target="_blank"><h5>${restaurant.name} </h5></a>
               <h6>${restaurant.location.display_address}</h6>
               <h6>Ratings= ${restaurant.rating} || Number of reviews= ${restaurant.review_count}</h6>
-              <a onclick="restaurantSelected('${restaurant.id}')" class="btn btn-primary" href="#">restaurant details</a>
+              <a onclick="restaurantSelected('${restaurant.id}')" class="btn btn-primary" href="#">Restaurant Reviews</a>
             </div>
           </div>
             `;
